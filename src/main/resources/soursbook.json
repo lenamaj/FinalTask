@@ -20,5 +20,13 @@
     "year": 12,
     "pages": 12,
     "cost": 12.0
+  },
+  {
+    "name": "rr",
+    "author": "rr",
+    "publisher": "rr",
+    "year": 6,
+    "pages": 7,
+    "cost": 0.0
   }
 ]

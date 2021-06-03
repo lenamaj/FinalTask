@@ -10,8 +10,18 @@ public class CheckIncomingParameters {
 
  public void checkPrise(double prise) throws Exception {
         if (prise == 0.0){
-          log.error("The parameters must not to be 0.0 or not be empty");
-          throw new NotValidVariableException("The prise must not to be 0.0");
+          log.error("The parameters must not be 0.0");
+          throw new NotValidVariableException("The prise must not be 0.0");
         }
     }
+
+
+
+    public void checkPages(int pages) throws Exception {
+        if (pages <= 0){
+            log.error("The parameters must not be 0.0 or not be negative");
+            throw new NotValidVariableException("The cost pages not be 0.0 or not be negative");
+        }
+    }
+
 }

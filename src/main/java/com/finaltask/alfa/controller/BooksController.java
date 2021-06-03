@@ -1,6 +1,7 @@
 package com.finaltask.alfa.controller;
 
 
+import com.finaltask.alfa.controller.exception.NotValidVariableException;
 import com.finaltask.alfa.model.ServiceBooks;
 import com.finaltask.alfa.view.BooksView;
 import com.finaltask.alfa.view.InputDataView;
@@ -50,9 +51,15 @@ public class BooksController {
     }
 
     private void inputNewPrise() {
-        String cost = dataView.inputString(BooksView.ENTER_COST);
-        //CheckIncomingParameters.checkPrise(Double.parseDouble(cost));
-        serviceBooks.increasePrise(Double.parseDouble(cost));
+
+        try {
+            String cost = dataView.inputString(BooksView.ENTER_COST);
+            checkIncomingParameters.checkPrise(Double.parseDouble(cost));
+            serviceBooks.increasePrise(Double.parseDouble(cost));
+        } catch (Exception e){
+            log.error("Error on inputNewPrise", e);
+        }
+
     }
 
     public void handleFilterMenu() {
