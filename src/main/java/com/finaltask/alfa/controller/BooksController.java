@@ -51,7 +51,7 @@ public class BooksController {
 
     private void inputNewPrise() {
         String cost = dataView.inputString(BooksView.ENTER_COST);
-        CheckIncomingParameters.checkPrise(Double.parseDouble(cost));
+        //CheckIncomingParameters.checkPrise(Double.parseDouble(cost));
         serviceBooks.increasePrise(Double.parseDouble(cost));
     }
 
