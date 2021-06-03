@@ -1,0 +1,24 @@
+[
+  {
+    "author": "Author5",
+    "publisher": "Publisher5",
+    "year": 6,
+    "pages": 7,
+    "cost": 7.0
+  },
+  {
+    "author": "Author1",
+    "publisher": "Publisher1",
+    "year": 6,
+    "pages": 7,
+    "cost": 7.0
+  },
+  {
+    "name": "sdf",
+    "author": "sdf",
+    "publisher": "sdf",
+    "year": 12,
+    "pages": 12,
+    "cost": 12.0
+  }
+]

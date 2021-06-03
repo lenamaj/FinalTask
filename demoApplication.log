@@ -1,0 +1,3 @@
+[main] DEBUG com.finaltask.alfa.Main  - Log4j appender configuration is successful !!
+[main] INFO  com.finaltask.alfa.controller.BooksController  - filterByYear -> 2015
+[main] INFO  com.finaltask.alfa.controller.BooksController  - filterByPublisher -> Publisher1
