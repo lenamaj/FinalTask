@@ -9,7 +9,7 @@ public class CheckIncomingParameters {
     private Logger log = Logger.getLogger(this.getClass());
 
  public void checkPrise(double prise) throws Exception {
-        if (prise == 0.0){
+        if (prise <= 0.0){
           log.error("The parameters must not be 0.0");
           throw new NotValidVariableException("The prise must not be 0.0");
         }

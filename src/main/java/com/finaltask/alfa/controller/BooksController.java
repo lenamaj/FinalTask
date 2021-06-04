@@ -29,10 +29,10 @@ public class BooksController {
             int menuItem = dataView.inputMenuItem();
             switch (menuItem) {
                 case 0: System.exit(0);
-                case 1: printBooks.printListBooks(serviceBooks.getBookList()); break;
-                case 2: inputAddBook(); break;
-                case 3: inputNewPrise(); break;
-                case 4: handleFilterMenu(); break;
+                case 1: printBooks.printListBooks(serviceBooks.getBookList());break;
+                case 2: inputAddBook();break;
+                case 3: inputNewPrise();break;
+                case 4: handleFilterMenu();break;
                 default: printBooks.printMessage(BooksView.ERROR_ENTER);
 
             }
@@ -40,23 +40,29 @@ public class BooksController {
     }
 
     private void inputAddBook() {
-        String name = dataView.inputString(BooksView.ENTER_TITLE);
-        String author = dataView.inputString(BooksView.ENTER_AUTHOR);
-        String publisher = dataView.inputString(BooksView.ENTER_PUBLISHER);
-        String year = dataView.inputString(BooksView.ENTER_YEAR);
-        String pages = dataView.inputString(BooksView.ENTER_PAGES);
-        String cost = dataView.inputString(BooksView.ENTER_COST);
-        serviceBooks.addBook(name, author, publisher, Integer.parseInt(year), Integer.parseInt(pages),
-                Double.parseDouble(cost));
+
+        try {
+            String name = dataView.inputString(BooksView.ENTER_TITLE);
+            String author = dataView.inputString(BooksView.ENTER_AUTHOR);
+            String publisher = dataView.inputString(BooksView.ENTER_PUBLISHER);
+            String year = dataView.inputString(BooksView.ENTER_YEAR);
+            String pages = dataView.inputString(BooksView.ENTER_PAGES);
+            checkIncomingParameters.checkPages(Integer.parseInt(pages));
+            String cost = dataView.inputString(BooksView.ENTER_COST);
+            checkIncomingParameters.checkPrise(Double.parseDouble(cost));
+            serviceBooks.addBook(name, author, publisher, Integer.parseInt(year), Integer.parseInt(pages),
+                    Double.parseDouble(cost));
+        } catch (Exception e) {
+            log.error("Error on inputNewPrise", e);
+        }
     }
 
     private void inputNewPrise() {
 
         try {
             String cost = dataView.inputString(BooksView.ENTER_COST);
-            checkIncomingParameters.checkPrise(Double.parseDouble(cost));
             serviceBooks.increasePrise(Double.parseDouble(cost));
-        } catch (Exception e){
+        } catch (Exception e) {
             log.error("Error on inputNewPrise", e);
         }
 
@@ -67,10 +73,11 @@ public class BooksController {
             System.out.println();
             int menuItem = dataView.inputFilterMenu();
             switch (menuItem) {
-                case 1: filterByAuthor(); break;
-                case 2: filterByYear(); break;
-                case 3: filterByPublisher(); break;
-                default: printBooks.printMessage(BooksView.ERROR_ENTER);
+                case 1: filterByAuthor();break;
+                case 2: filterByYear();break;
+                case 3: filterByPublisher();break;
+                default:
+                    printBooks.printMessage(BooksView.ERROR_ENTER);
 
             }
         }
